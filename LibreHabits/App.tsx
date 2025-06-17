@@ -1,4 +1,3 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import "./global.css"
 import { StatusBar } from 'expo-status-bar';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -6,32 +5,29 @@ import { NavigationContainer } from "@react-navigation/native";
 import { Ionicons } from '@expo/vector-icons';
 
 import HabitsList from '@/pages/Habits/HabitsList';
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 
-const BottomTab = createBottomTabNavigator({
-  screens: {
-    Habits: HabitsList
-  }
-})
+const BottomTab = createBottomTabNavigator()
 
 export default function App() {
   return (
     <SafeAreaProvider>
-      <NavigationContainer>
-        <SafeAreaView style={{ flex: 1 }}>
+      <NavigationContainer >
+        
           <StatusBar style="auto" />
           <BottomTab.Navigator screenOptions={({ route }) => ({
             tabBarStyle: {
-              borderRadius: 10,
-              marginHorizontal: 10,
-              elevation: 5,
-              shadowColor: 'rgb(255,125,72)',       // TODO --> Update with theme color
+              backgroundColor: "#e2e8f0",
+              borderRadius: 0,
+              marginHorizontal: 0,
+              elevation: 0,
+              shadowColor: '#000',       // TODO --> Update with theme color
               shadowOffset: { width: 0, height: -3 },
               shadowOpacity: 0.1,
               shadowRadius: 3,
               height: 60,
-              bottom: 10,
+              bottom: 0,
             },
             headerShown: false,
             animation: 'fade',
@@ -51,14 +47,13 @@ export default function App() {
               // Return the icon component
               return <Ionicons name={iconName} size={size} color={color} />;
             },
-            tabBarActiveTintColor: 'tomato',
-            tabBarInactiveTintColor: 'gray',
+            tabBarActiveTintColor: '#000',
+            tabBarInactiveTintColor: '#444',
           })}
           >
             <BottomTab.Screen name="Habits" component={HabitsList} />
             <BottomTab.Screen name="Habits2" component={HabitsList} />
           </BottomTab.Navigator>
-        </SafeAreaView>
       </NavigationContainer>
     </SafeAreaProvider>
   );
