@@ -20,3 +20,8 @@ export interface Habit {
   type: HabitType;
   objective: boolean | number; 
 }
+
+export type HabitsStackParamList = {
+  HabitsList: undefined;
+  HabitsForm: undefined;
+};
