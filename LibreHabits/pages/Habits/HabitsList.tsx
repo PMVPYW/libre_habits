@@ -59,10 +59,10 @@ export default function HabitsList() {
     const navigation = useNavigation<Navigation>();
     return (
         <SafeAreaView style={{ flex: 1 }} className="bg-slate-200">
-            <View className='w-11/12 mx-auto rounded-xl overflow-hidden elevation-xl shadow-black drop-shadow-lg'>
+            <View className='w-11/12 mx-auto rounded-xl overflow-hidden elevation-xl shadow-black drop-shadow-lg mt-4'>
                 <FlatList  data={sample_data} renderItem={({ item }) => <HabitRenderItem habit={item} />}></FlatList>
             </View>
-            <Pressable onPress={()=>navigation.navigate('HabitsForm')} android_ripple={{color: '#e2e8f0'}} className='bg-black w-4/12 p-3 rounded-full mx-auto bottom-10 absolute' style={{alignSelf: 'center'}}>
+            <Pressable onPress={()=>navigation.navigate('HabitsForm')} android_ripple={{color: '#e2e8f0'}} className='bg-black w-fit px-4 py-3 rounded-full mx-auto bottom-10 absolute' style={{alignSelf: 'center'}}>
                 <Text className='text-white text-xl mx-auto'>+ Create Habit</Text>
             </Pressable>
         </SafeAreaView>
